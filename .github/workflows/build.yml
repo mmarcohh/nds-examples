@@ -8,14 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: devkitpro/devkitarm:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup devkitPRO
-        uses: devkitpro/setup-devkitpro@v1
-        with:
-          devkitarm: true
 
       - name: Build Example Game
         run: |
