@@ -1,0 +1,29 @@
+name: Build NDS ROM
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup devkitPRO
+        uses: devkitpro/setup-devkitpro@v1
+        with:
+          devkitarm: true
+
+      - name: Build Example Game
+        run: |
+          cd hello_world
+          make
+
+      - name: Upload NDS ROM
+        uses: actions/upload-artifact@v4
+        with:
+          name: gioco-anniversario
+          path: hello_world/*.nds
