@@ -1,13 +1,11 @@
 #include <nds.h>
 #include <stdio.h>
-#include <fat.h>
 
 int main(void) {
-    // Inizializza la console e il file system per nds-bootstrap
+    // Inizializza la console video standard NDS
     consoleDemoInit();
-    fatInitDefault();
 
-    // Visualizza il messaggio
+    // Pulisce lo schermo e mostra il messaggio
     iprintf("\n\n");
     iprintf("  ==========================\n");
     iprintf("   Tanti Auguri di\n");
